@@ -1,9 +1,12 @@
 import { Toaster } from "sonner";
-import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Inter } from "next/font/google";
 import type { Metadata } from "next";
-import "./globals.css";
+import { Inter } from "next/font/google";
+
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import ConvexClientProvider from "@/components/providers/convex-provider";
+import { ModalProvider } from "@/components/providers/modal-provider";
+
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -43,6 +46,7 @@ export default function RootLayout({
             storageKey="whimsy-theme"
           >
             <Toaster position="bottom-center" />
+            <ModalProvider />
             {children}
           </ThemeProvider>
         </ConvexClientProvider>
